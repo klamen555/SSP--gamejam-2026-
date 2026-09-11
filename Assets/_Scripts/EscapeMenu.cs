@@ -10,8 +10,14 @@ public class EscapeMenu : MonoBehaviour
     public GameObject optionsPanel;
     private bool isOpen = false;
 
+    PlayerControls controls;
+    InputAction escapeAction;
+
     private void Awake()
     {
+        controls = new PlayerControls();
+        escapeAction = controls.Player.Escape;
+
         if (instance == null)
         {
             instance = this;
@@ -24,16 +30,23 @@ public class EscapeMenu : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        controls.Player.Enable();
+        escapeAction.started += OnEscapePressed;
+    }
+    private void OnDisable()
+    {
+        escapeAction.started -= OnEscapePressed;
+        controls.Player.Disable();
+    }
+
+    private void OnEscapePressed(InputAction.CallbackContext context)
+    {
+        Debug.Log("AE & NT");
+        if (IsAllowedInCurrentScene())
         {
             Toggle();
-
-            if (IsAllowedInCurrentScene())
-            {
-                Toggle();
-            }
         }
     }
 
@@ -81,8 +94,8 @@ public class EscapeMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         Resume();
-        if (SceneTransition.instance != null) SceneTransition.instance.LoadScene(0);
-        else SceneManager.LoadScene(0);
+        if (SceneTransition.instance != null) SceneTransition.instance.LoadScene(1);
+        else SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
