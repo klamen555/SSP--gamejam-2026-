@@ -20,3 +20,4 @@ MonoBehaviour:
   cameraShakeVerticalAmplitude: 0.05
   cameraShakeHorizontalAmplitude: 0.05
   cameraShakeSmoothing: 10
+  interactionRange: 5
