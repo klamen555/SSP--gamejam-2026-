@@ -8,7 +8,8 @@ public class PlayerSettings : ScriptableObject
     public float cameraSensitivity;
     [Space]
     [Header("Camera Shake")]
-    public float cameraShakeFrequency;
+    public float normalCameraShakeFrequency;
+    public float runningCameraShakeFrequency;
     public float cameraShakeVerticalAmplitude;
     public float cameraShakeHorizontalAmplitude;
     public float cameraShakeSmoothing;

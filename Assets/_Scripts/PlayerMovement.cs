@@ -8,9 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform mainCamera;
 
     float currentSpeed;
+    float currentCameraShakeFrequency;
+
     float yaw;
     float pitch;
     float shakeTimer;
+    float verticalVelocity;
 
     Vector3 defaultCameraPosition;
 
@@ -29,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         pitch = transform.eulerAngles.x;
 
         currentSpeed = settings.normalSpeed;
+        currentCameraShakeFrequency = settings.normalCameraShakeFrequency;
 
         defaultCameraPosition = mainCamera.localPosition;
     }
@@ -52,11 +56,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnSprintStarted(InputAction.CallbackContext context)
     {
         currentSpeed = settings.runningSpeed;
+        currentCameraShakeFrequency = settings.runningCameraShakeFrequency;
     }
 
     private void OnSprintCanceled(InputAction.CallbackContext context)
     {
         currentSpeed = settings.normalSpeed;
+        currentCameraShakeFrequency = settings.normalCameraShakeFrequency;
     }
 
     private void Update()
@@ -73,6 +79,14 @@ public class PlayerMovement : MonoBehaviour
         velocity.Normalize();
         velocity = velocity * currentSpeed * Time.deltaTime;
         velocity = Quaternion.Euler(0f, yaw, 0f) * velocity;
+
+        if (controller.isGrounded && verticalVelocity < 0f)
+        {
+            verticalVelocity = -2f;
+        }
+
+        verticalVelocity += -10f * Time.deltaTime;
+        velocity.y = verticalVelocity * Time.deltaTime;
 
         controller.Move(velocity);
     }
@@ -93,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputMagnitude > 0.01f)
         {
-            shakeTimer += Time.deltaTime * settings.cameraShakeFrequency * inputMagnitude;
+            shakeTimer += Time.deltaTime * currentCameraShakeFrequency * inputMagnitude;
             float verticalOffset = Mathf.Sin(shakeTimer) * settings.cameraShakeVerticalAmplitude;
             float horizontalOffset = Mathf.Cos(shakeTimer * 0.5f) * settings.cameraShakeHorizontalAmplitude;
             targetOffset += new Vector3(horizontalOffset, verticalOffset, 0f);

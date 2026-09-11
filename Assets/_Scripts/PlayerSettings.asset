@@ -15,7 +15,8 @@ MonoBehaviour:
   normalSpeed: 5
   runningSpeed: 8
   cameraSensitivity: 0.2
-  cameraShakeFrequency: 20
+  normalCameraShakeFrequency: 20
+  runningCameraShakeFrequency: 35
   cameraShakeVerticalAmplitude: 0.05
   cameraShakeHorizontalAmplitude: 0.05
   cameraShakeSmoothing: 10
