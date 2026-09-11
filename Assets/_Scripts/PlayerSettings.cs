@@ -13,4 +13,6 @@ public class PlayerSettings : ScriptableObject
     public float cameraShakeVerticalAmplitude;
     public float cameraShakeHorizontalAmplitude;
     public float cameraShakeSmoothing;
+    [Space]
+    public float interactionRange;
 }
