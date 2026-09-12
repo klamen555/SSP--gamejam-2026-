@@ -12,4 +12,9 @@ public class NoteInteractor : MonoBehaviour
         if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
     }
+
+    public void DestroyPlantLights(GameObject lights)
+    {
+        Destroy(lights, 5f);
+    }
 }
