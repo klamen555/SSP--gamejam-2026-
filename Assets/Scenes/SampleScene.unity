@@ -975,6 +975,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b11bbbd96668feb4b93c8c0dbffdacc1, type: 3}
+--- !u!1001 &222013278
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.837003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.23746838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 33.01259
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887814017351881323, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220026919543624948, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
+      propertyPath: m_Name
+      value: CarnivorousPlant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 016a64b4c1bd064eb92f5cab84f22703, type: 3}
 --- !u!4 &229745462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4810008691664545361, guid: 5b4c785a596ea3141ba290c49d29c2ae, type: 3}
@@ -3949,7 +4006,7 @@ RectTransform:
   m_LocalScale: {x: 2.3787, y: 2.3787, z: 2.3787}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1117835003}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4124,11 +4181,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1410786014}
   m_SourcePrefab: {fileID: 100100000, guid: ee76890cc072d101ba05fd3f7d8561e4, type: 3}
---- !u!4 &1403218647 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1c27b8874cbcf2abe84934659983edb3, type: 3}
-  m_PrefabInstance: {fileID: 378296155}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1410786008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -812605562767774375, guid: ee76890cc072d101ba05fd3f7d8561e4, type: 3}
@@ -5115,9 +5167,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 82.44803, y: 24.42783, z: 115.9264}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 1613121762}
-  m_Father: {fileID: 655183923}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5145,14 +5196,14 @@ MonoBehaviour:
   Actions: "Otev\u0159\xEDt"
   mainCamera: {fileID: 0}
   Canvas: {fileID: 2033850036}
-  Text: {fileID: 1613121763}
-  TextField: {fileID: 1613121761}
+  Text: {fileID: 0}
+  TextField: {fileID: 0}
   IsVisible: 1
   ProceduralSFX: {fileID: 0}
   IsTriggered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1117834999}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -5169,7 +5220,7 @@ MonoBehaviour:
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1591950462}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5453,3 +5504,6 @@ SceneRoots:
   - {fileID: 217168446}
   - {fileID: 149021485}
   - {fileID: 1095569391}
+  - {fileID: 1328606658}
+  - {fileID: 2033850036}
+  - {fileID: 222013278}
