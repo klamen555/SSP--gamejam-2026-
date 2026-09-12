@@ -21,9 +21,13 @@ public class KonviceInteractor : MonoBehaviour
         }
         else
         {
-            currentCapacity -= 3f;
+            currentCapacity -= capacityPerPour;
             animator.Play("WateringFlower");
-            flowerStats.waterLevel += 3f;
+            flowerStats.waterLevel += capacityPerPour;
         }
+    }
+    public void FillWater()
+    {
+        currentCapacity = maxCapacity;
     }
 }
