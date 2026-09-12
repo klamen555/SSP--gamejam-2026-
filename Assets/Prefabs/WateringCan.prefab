@@ -156,9 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788eec8952a0d1349ac60f02036b7799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCapacity: 10
-  currentCapacity: 10
-  capacityPerPour: 2
+  maxCapacity: 0
+  currentCapacity: 0
+  capacityPerPour: 0
   animator: {fileID: 0}
 --- !u!1 &3878185138049538556
 GameObject:
@@ -170,6 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1445019401671138481}
   - component: {fileID: 4503601065856137743}
+  - component: {fileID: 2029614803195751917}
   m_Layer: 6
   m_Name: WateringCan
   m_TagString: Untagged
@@ -215,6 +216,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.22, y: 0.59, z: 0.66}
   m_Center: {x: 0, y: 0.35, z: 0}
+--- !u!114 &2029614803195751917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878185138049538556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788eec8952a0d1349ac60f02036b7799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCapacity: 10
+  currentCapacity: 10
+  capacityPerPour: 2
+  animator: {fileID: 0}
 --- !u!1 &5149330284450791991
 GameObject:
   m_ObjectHideFlags: 0
