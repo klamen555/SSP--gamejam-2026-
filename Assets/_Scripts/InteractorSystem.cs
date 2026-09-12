@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -23,19 +24,19 @@ public class InteractorSystem : MonoBehaviour
     {
         controls.Player.Enable();
 
-        dropAction.started += OnInteractionStarted;
+        dropAction.started += OnDropStarted;
     }
 
     private void OnDisable()
     {
-        dropAction.started -= OnInteractionStarted;
+        dropAction.started -= OnDropStarted;
 
         controls.Player.Disable();
     }
 
-    private void OnInteractionStarted(InputAction.CallbackContext context)
+    private void OnDropStarted(InputAction.CallbackContext context)
     {
-        
+        DropItem();
     }
 
     public GameObject currentlyHolding;
@@ -43,6 +44,8 @@ public class InteractorSystem : MonoBehaviour
 
     public void TakeItem(GameObject item)
     {
+        if (item.GetComponent<Rigidbody>() != null) Destroy(item.GetComponent<Rigidbody>());
+
         if (currentlyHolding == null)
         {
             item.transform.SetParent(handPosititon);
@@ -66,13 +69,18 @@ public class InteractorSystem : MonoBehaviour
     public void DropItem()
     {
         currentlyHolding.transform.SetParent(null);
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, settings.interactionRange))
-        {
-            currentlyHolding.transform.position = hit.point;
-        }
-
-        currentlyHolding.GetComponent<ProximityPromptScript>().enabled = true;
+        currentlyHolding.transform.localScale = Vector3.one;
+        currentlyHolding.transform.AddComponent<Rigidbody>();
         currentlyHolding = null;
+
+        ProximityPromptScript[] prompts = FindObjectsByType<ProximityPromptScript>(FindObjectsSortMode.None);
+
+        foreach (ProximityPromptScript prompt in prompts)
+        {
+            if ((interactionLayer.value & (1 << prompt.gameObject.layer)) != 0)
+            {
+                prompt.IsVisible = true;
+            }
+        }
     }
 }

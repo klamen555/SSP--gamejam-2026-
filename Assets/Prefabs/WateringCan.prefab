@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc0e49f420486418b5d88bfddc484f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxDistance: 2
+  MaxDistance: 4
   MinDot: 0.8
   time: 1
   WaitTime: 0
@@ -165,6 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1445019401671138481}
+  - component: {fileID: 4503601065856137743}
   m_Layer: 6
   m_Name: WateringCan
   m_TagString: Untagged
@@ -189,6 +190,27 @@ Transform:
   - {fileID: 7342492502072759114}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4503601065856137743
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878185138049538556}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22, y: 0.59, z: 0.66}
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!1 &5149330284450791991
 GameObject:
   m_ObjectHideFlags: 0

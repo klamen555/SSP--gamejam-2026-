@@ -136,6 +136,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""c81f2313-8d65-42cc-b999-9bc95cbaf6be"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -248,6 +257,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5bf86432-9a59-4bf0-b3b9-3037a4d713be"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -261,6 +281,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
+        m_Player_Drop = m_Player.FindAction("Drop", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -346,6 +367,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Escape;
+    private readonly InputAction m_Player_Drop;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -377,6 +399,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Escape".
         /// </summary>
         public InputAction @Escape => m_Wrapper.m_Player_Escape;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Drop".
+        /// </summary>
+        public InputAction @Drop => m_Wrapper.m_Player_Drop;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -418,6 +444,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Escape.started += instance.OnEscape;
             @Escape.performed += instance.OnEscape;
             @Escape.canceled += instance.OnEscape;
+            @Drop.started += instance.OnDrop;
+            @Drop.performed += instance.OnDrop;
+            @Drop.canceled += instance.OnDrop;
         }
 
         /// <summary>
@@ -444,6 +473,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Escape.started -= instance.OnEscape;
             @Escape.performed -= instance.OnEscape;
             @Escape.canceled -= instance.OnEscape;
+            @Drop.started -= instance.OnDrop;
+            @Drop.performed -= instance.OnDrop;
+            @Drop.canceled -= instance.OnDrop;
         }
 
         /// <summary>
@@ -519,5 +551,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEscape(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Drop" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDrop(InputAction.CallbackContext context);
     }
 }
