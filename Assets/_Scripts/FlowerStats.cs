@@ -16,12 +16,27 @@ public class FlowerStats : MonoBehaviour
 
     public int PlantStageIndex;
     public float progressionValue;
+    public float maxWaterLevel;
     public float waterLevel;
     [Space]
     [SerializeField] Slider waterSlider;
+    [SerializeField] Image sliderFill;
     [SerializeField] Gradient waterSliderGradient;
     [SerializeField] Transform flowerParent;
     [SerializeField] GameObject currentFlower;
+
+    private void Update()
+    {
+        waterLevel -= 0.1f * Time.deltaTime * (PlantStageIndex + 1);
+
+        sliderFill.color = waterSliderGradient.Evaluate(waterLevel/maxWaterLevel);
+        waterSlider.value = waterLevel / maxWaterLevel;
+    }
+
+    public void WaterFlower()
+    {
+
+    }
 
     public void GrowTrigger()
     {

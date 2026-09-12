@@ -7,6 +7,8 @@ public class InteractorSystem : MonoBehaviour
     [SerializeField] PlayerSettings settings;
     [SerializeField] LayerMask interactionLayer;
 
+    public GameObject currentlyHolding;
+
     PlayerControls controls;
     InputAction interactAction;
 
