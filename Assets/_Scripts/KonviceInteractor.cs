@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KonviceInteractor : MonoBehaviour
 {
@@ -6,6 +7,14 @@ public class KonviceInteractor : MonoBehaviour
     [SerializeField] float currentCapacity;
     [SerializeField] float capacityPerPour;
     [SerializeField] Animator animator;
+    [SerializeField] Slider fillSlider;
+    [SerializeField] Image fillObject;
+    [SerializeField] Gradient sliderGradient;
+
+    private void Start()
+    {
+        UpdateSlider();
+    }
 
     public void Water(FlowerStats flowerStats)
     {
@@ -25,9 +34,19 @@ public class KonviceInteractor : MonoBehaviour
             animator.Play("WateringFlower");
             flowerStats.waterLevel += capacityPerPour;
         }
+
+        UpdateSlider();
     }
     public void FillWater()
     {
         currentCapacity = maxCapacity;
+
+        UpdateSlider();
+    }
+
+    void UpdateSlider()
+    {
+        fillObject.color = sliderGradient.Evaluate(currentCapacity / maxCapacity);
+        fillSlider.value = currentCapacity / maxCapacity;
     }
 }
