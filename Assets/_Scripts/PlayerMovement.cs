@@ -119,14 +119,4 @@ public class PlayerMovement : MonoBehaviour
 
         mainCamera.localPosition = Vector3.Lerp(mainCamera.localPosition, targetOffset, Time.deltaTime * settings.cameraShakeSmoothing);
     }
-
-    public void Pause()
-    {
-        controller.enabled = !controller.gameObject.activeSelf;
-
-        Cursor.visible = !Cursor.visible;
-
-        if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
-        else Cursor.lockState = CursorLockMode.Locked;
-    }
 }
