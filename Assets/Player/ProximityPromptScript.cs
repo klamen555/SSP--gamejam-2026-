@@ -1,8 +1,9 @@
 using UnityEngine;
 using TMPro;
+using System;
 using Unity.Mathematics;
 using System.Collections.Generic;
-using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class ProximityPromptScript : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class ProximityPromptScript : MonoBehaviour
     public string Object = "Door";
     public string Actions;
 
-    public Transform mainCamera;
+    public Transform Camera;
     public Transform Canvas;
     public TMP_Text Text;
 
@@ -28,7 +29,7 @@ public class ProximityPromptScript : MonoBehaviour
 
     [SerializeField] private AudioSource ProceduralSFX;
 
-    public UnityEvent IsTriggered;
+    public event Action IsTriggered;
 
     private static readonly List<ProximityPromptScript> allPrompts = new List<ProximityPromptScript>();
     private static ProximityPromptScript bestPrompt;
@@ -51,8 +52,6 @@ public class ProximityPromptScript : MonoBehaviour
     {
         ReamingTime = time;
         WaitedTime = WaitTime;
-
-        mainCamera = Camera.main.transform;
     }
 
     private void Update()
@@ -67,7 +66,7 @@ public class ProximityPromptScript : MonoBehaviour
 
         if (IsActive && Debounce)
         {
-            Canvas.LookAt(mainCamera.position);
+            Canvas.LookAt(Camera.position);
             Canvas.Rotate(0, 180, 0);
             TextField.SetActive(true);
 
@@ -84,7 +83,7 @@ public class ProximityPromptScript : MonoBehaviour
                 else
                 {
                     Debounce = false;
-                    IsTriggered.Invoke();
+                    IsTriggered?.Invoke();
                     
                     StopProcenduralSFX();
                 }
@@ -123,13 +122,13 @@ public class ProximityPromptScript : MonoBehaviour
 
         foreach (var prompt in allPrompts)
         {
-            if (!prompt.IsVisible || prompt.mainCamera == null || prompt.Canvas == null) continue;
+            if (!prompt.IsVisible || prompt.Camera == null || prompt.Canvas == null) continue;
 
-            float distance = Vector3.Distance(prompt.mainCamera.position, prompt.Canvas.position);
+            float distance = Vector3.Distance(prompt.Camera.position, prompt.Canvas.position);
             if (distance > prompt.MaxDistance) continue;
 
-            Vector3 camFront = prompt.mainCamera.forward;
-            Vector3 shouldLook = prompt.Canvas.position - prompt.mainCamera.position;
+            Vector3 camFront = prompt.Camera.forward;
+            Vector3 shouldLook = prompt.Canvas.position - prompt.Camera.position;
             float dot = Vector3.Dot(camFront.normalized, shouldLook.normalized);
 
             if (dot > prompt.MinDot && dot > highestDot)
