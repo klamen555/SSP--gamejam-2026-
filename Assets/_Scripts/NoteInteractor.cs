@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class NoteInteractor : MonoBehaviour, IInteractable
+public class NoteInteractor : MonoBehaviour
 {
-    public void OnInteract()
+    public void InspectPaper()
     {
-
+        PlayerMovement movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        movement.Pause();
     }
-
-    public bool CanInteract { get; set; }
 }
