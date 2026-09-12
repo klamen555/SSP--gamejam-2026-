@@ -7176,6 +7176,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 14700786336492044, guid: da733270cd385cb4a88c81eeaf33f145, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 14700786336492044, guid: da733270cd385cb4a88c81eeaf33f145, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 644466750494420160, guid: da733270cd385cb4a88c81eeaf33f145, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -7244,12 +7252,28 @@ PrefabInstance:
       propertyPath: IsTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 572844549}
+    - target: {fileID: 3497267821670237741, guid: da733270cd385cb4a88c81eeaf33f145, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3878185138049538556, guid: da733270cd385cb4a88c81eeaf33f145, type: 3}
       propertyPath: m_Name
       value: WateringCan
       objectReference: {fileID: 0}
     - target: {fileID: 3878185138049538556, guid: da733270cd385cb4a88c81eeaf33f145, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544005136072638919, guid: da733270cd385cb4a88c81eeaf33f145, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544005136072638919, guid: da733270cd385cb4a88c81eeaf33f145, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544005136072638919, guid: da733270cd385cb4a88c81eeaf33f145, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

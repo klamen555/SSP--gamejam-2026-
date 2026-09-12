@@ -8,8 +8,6 @@ public class KonviceInteractor : MonoBehaviour
     [SerializeField] float capacityPerPour;
     [SerializeField] Animator animator;
     [SerializeField] Slider fillSlider;
-    [SerializeField] Image fillObject;
-    [SerializeField] Gradient sliderGradient;
 
     private void Start()
     {
@@ -46,7 +44,6 @@ public class KonviceInteractor : MonoBehaviour
 
     void UpdateSlider()
     {
-        fillObject.color = sliderGradient.Evaluate(currentCapacity / maxCapacity);
         fillSlider.value = currentCapacity / maxCapacity;
     }
 }
