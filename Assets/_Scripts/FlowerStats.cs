@@ -35,7 +35,12 @@ public class FlowerStats : MonoBehaviour
 
     public void WaterFlower()
     {
+        InteractorSystem interactor = GameObject.FindAnyObjectByType<InteractorSystem>();
 
+        if (interactor.currentlyHolding.GetComponent<KonviceInteractor>() != null)
+        {
+            interactor.currentlyHolding.GetComponent<KonviceInteractor>().Water(this);
+        }
     }
 
     public void GrowTrigger()

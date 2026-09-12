@@ -156,6 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788eec8952a0d1349ac60f02036b7799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxCapacity: 10
+  currentCapacity: 10
+  capacityPerPour: 2
+  animator: {fileID: 0}
 --- !u!1 &3878185138049538556
 GameObject:
   m_ObjectHideFlags: 0
