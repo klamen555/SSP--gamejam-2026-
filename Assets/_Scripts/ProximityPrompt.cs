@@ -5,9 +5,19 @@ using UnityEngine.Events;
 
 public class ProximityPrompt : MonoBehaviour
 {
-    [SerializeField] IInteractable interactable;
+    [SerializeField] MonoBehaviour interactable;
     [SerializeField] UnityEvent onEnter;
     [SerializeField] UnityEvent onExit;
+    [SerializeField] Transform promptPanel;
+    [SerializeField] TextMeshProUGUI promptText;
+
+    Transform player;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +25,12 @@ public class ProximityPrompt : MonoBehaviour
 
         onEnter.Invoke();
 
-        interactable.CanInteract = true;
+        interactable.GetComponent<IInteractable>().CanInteract = true;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        promptPanel.LookAt(player.position);
     }
 
     private void OnTriggerExit(Collider other)
@@ -24,6 +39,6 @@ public class ProximityPrompt : MonoBehaviour
 
         onExit.Invoke();
 
-        interactable.CanInteract = false;
+        interactable.GetComponent<IInteractable>().CanInteract = false;
     }
 }
