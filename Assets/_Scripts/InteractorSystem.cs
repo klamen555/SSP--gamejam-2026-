@@ -10,40 +10,33 @@ public class InteractorSystem : MonoBehaviour
 
 
 
-    //PlayerControls controls;
-    //InputAction interactAction;
+    PlayerControls controls;
+    InputAction dropAction;
 
-    //private void Awake()
-    //{
-    //    controls = new PlayerControls();
-    //    interactAction = controls.Player.Interact;
-    //}
+    private void Awake()
+    {
+        controls = new PlayerControls();
+        dropAction = controls.Player.Drop;
+    }
 
-    //private void OnEnable()
-    //{
-    //    controls.Player.Enable();
+    private void OnEnable()
+    {
+        controls.Player.Enable();
 
-    //    interactAction.started += OnInteractionStarted;
-    //}
+        dropAction.started += OnInteractionStarted;
+    }
 
-    //private void OnDisable()
-    //{
-    //    interactAction.started -= OnInteractionStarted;
+    private void OnDisable()
+    {
+        dropAction.started -= OnInteractionStarted;
 
-    //    controls.Player.Disable();
-    //}
+        controls.Player.Disable();
+    }
 
-    //private void OnInteractionStarted(InputAction.CallbackContext context)
-    //{
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, settings.interactionRange, interactionLayer.value))
-    //    {
-    //        if (hit.transform.TryGetComponent<IInteractable>(out IInteractable interactable))
-    //        {
-    //            interactable.OnInteract();
-    //        }
-    //    }
-    //}
+    private void OnInteractionStarted(InputAction.CallbackContext context)
+    {
+        
+    }
 
     public GameObject currentlyHolding;
     public Transform handPosititon;
@@ -55,6 +48,7 @@ public class InteractorSystem : MonoBehaviour
             item.transform.SetParent(handPosititon);
             item.transform.localPosition = Vector3.zero;
             item.transform.localScale = Vector3.one;
+            item.transform.localRotation = Quaternion.identity;
             currentlyHolding = item;
         }
 
@@ -62,9 +56,9 @@ public class InteractorSystem : MonoBehaviour
 
         foreach (ProximityPromptScript prompt in prompts)
         {
-            if (prompt.transform.gameObject.layer == interactionLayer.value)
+            if ((interactionLayer.value & (1 << prompt.gameObject.layer)) != 0)
             {
-                prompt.GetComponent<ProximityPromptScript>().IsVisible = false;
+                prompt.IsVisible = false;
             }
         }
     }
@@ -78,6 +72,7 @@ public class InteractorSystem : MonoBehaviour
             currentlyHolding.transform.position = hit.point;
         }
 
+        currentlyHolding.GetComponent<ProximityPromptScript>().enabled = true;
         currentlyHolding = null;
     }
 }
