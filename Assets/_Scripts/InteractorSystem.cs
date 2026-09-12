@@ -20,17 +20,17 @@ public class InteractorSystem : MonoBehaviour
     {
         controls.Player.Enable();
 
-        interactAction.started += OnSprintStarted;
+        interactAction.started += OnInteractionStarted;
     }
 
     private void OnDisable()
     {
-        interactAction.started -= OnSprintStarted;
+        interactAction.started -= OnInteractionStarted;
 
         controls.Player.Disable();
     }
 
-    private void OnSprintStarted(InputAction.CallbackContext context)
+    private void OnInteractionStarted(InputAction.CallbackContext context)
     {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, settings.interactionRange, interactionLayer.value))
