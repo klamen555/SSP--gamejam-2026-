@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerSettings settings;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform mainCamera;
+    [SerializeField] private AudioClip footstepClip;
+    [SerializeField] private float walkStepInterval = 0.5f;
+    [SerializeField] private float runStepInterval = 0.3f;
 
     float currentSpeed;
     float currentCameraShakeFrequency;
@@ -14,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     float pitch;
     float shakeTimer;
     float verticalVelocity;
+    float stepTimer;
 
     Vector3 defaultCameraPosition;
 
@@ -70,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         HandleMovement();
         HandleCamera();
         HandleHeadbobbing();
+        HandleFootsteps();
     }
 
     void HandleMovement()
@@ -118,5 +123,30 @@ public class PlayerMovement : MonoBehaviour
         }
 
         mainCamera.localPosition = Vector3.Lerp(mainCamera.localPosition, targetOffset, Time.deltaTime * settings.cameraShakeSmoothing);
+    }
+
+    void HandleFootsteps()
+    {
+        float inputMagnitude = moveAction.ReadValue<Vector2>().magnitude;
+
+        if (inputMagnitude > 0.01f && controller.isGrounded)
+        {
+            float currentInterval = currentSpeed == settings.runningSpeed ? runStepInterval : walkStepInterval;
+            stepTimer += Time.deltaTime;
+
+            if (stepTimer >= currentInterval)
+            {
+                stepTimer = 0f;
+                if (AudioManager.Instance != null && footstepClip != null)
+                {
+                    float randomPitch = Random.Range(0.95f, 1.05f);
+                    AudioManager.Instance.PlaySFX(footstepClip, 1f, randomPitch);
+                }
+            }
+        }
+        else
+        {
+            stepTimer = 0f;
+        }
     }
 }
