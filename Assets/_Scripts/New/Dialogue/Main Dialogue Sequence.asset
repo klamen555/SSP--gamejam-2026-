@@ -12,4 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9f651d88e459d499f088ae6084d845, type: 3}
   m_Name: Main Dialogue Sequence
   m_EditorClassIdentifier: 
-  nodes: []
+  nodes:
+  - type: 0
+    speakerName: 
+    text: 
+    optionAText: 
+    onOptionASelected:
+      m_PersistentCalls:
+        m_Calls: []
+    optionANextIndex: 0
+    optionBText: 
+    onOptionBSelected:
+      m_PersistentCalls:
+        m_Calls: []
+    optionBNextIndex: 0
+  - type: 0
+    speakerName: 
+    text: 
+    optionAText: 
+    onOptionASelected:
+      m_PersistentCalls:
+        m_Calls: []
+    optionANextIndex: 0
+    optionBText: 
+    onOptionBSelected:
+      m_PersistentCalls:
+        m_Calls: []
+    optionBNextIndex: 0
