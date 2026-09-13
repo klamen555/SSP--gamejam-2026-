@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7679026523911142910}
   - component: {fileID: 4590858896366585181}
+  - component: {fileID: 5305506905493426907}
   m_Layer: 0
   m_Name: ObjectPoolTrigger
   m_TagString: Untagged
@@ -53,6 +54,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.5, y: 5.8, z: 5.79}
   m_Center: {x: 0, y: 2.11, z: 0}
+--- !u!114 &5305506905493426907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198451505086891690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab92071a2be93374386ddfb4cdd9c707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parent: {fileID: 8922330714313232047}
 --- !u!1 &8922330714313232047
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,8 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a897f7e941badb40bc90eb6d6cb536c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sectionLength: 234.68552
-  sectionLengthAxis: {x: 0, y: 0, z: 1}
+  length: 234.6
+  lengthAxis: {x: 0, y: 0, z: 1}
 --- !u!1001 &2495031813816058576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 50551e47ed83e0940b82c6341176c9a1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0515
+      value: -59.72
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 50551e47ed83e0940b82c6341176c9a1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -186,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 508d2d8b485dbeb42806e1315ae732da, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 59.95
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 508d2d8b485dbeb42806e1315ae732da, type: 3}
       propertyPath: m_LocalRotation.w

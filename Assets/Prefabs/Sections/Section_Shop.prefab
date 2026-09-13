@@ -848,8 +848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a897f7e941badb40bc90eb6d6cb536c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sectionLength: 235.70955
-  sectionLengthAxis: {x: 0, y: 0, z: 1}
+  length: 259.2
+  lengthAxis: {x: 0, y: 0, z: 1}
 --- !u!1 &7190854927104090150
 GameObject:
   m_ObjectHideFlags: 0

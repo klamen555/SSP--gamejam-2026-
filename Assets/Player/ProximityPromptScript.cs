@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 using Unity.Mathematics;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -23,7 +24,7 @@ public class ProximityPromptScript : MonoBehaviour
 
     public GameObject TextField;
     private bool IsActive = false;
-    private bool Debounce = true;
+    public bool Debounce = true;
 
     public bool IsVisible = false;
 
@@ -101,6 +102,7 @@ public class ProximityPromptScript : MonoBehaviour
         }
         else
         {
+            Debug.Log("Gay");
             TextField.SetActive(false);
             StopProcenduralSFX();
         }

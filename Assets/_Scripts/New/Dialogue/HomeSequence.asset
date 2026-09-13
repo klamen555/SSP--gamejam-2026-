@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3be78dba4812b49a4537509169484e, type: 3}
+  m_Name: HomeSequence
+  m_EditorClassIdentifier: 
+  dialogueSequenceList:
+  - Author: Ty
+    Text: "U\u017E zase nic nem\xE1m v lednici..."
+    Duration: 3.24
+    AudioClip: {fileID: 0}
+  - Author: Ty
+    Text: "Asi si budu muset zaj\xEDt do obchodu"
+    Duration: 3.24
+    AudioClip: {fileID: 0}
+  - Author: Ty
+    Text: "Ne \u017Ee bych to vysloven\u011B cht\u011Bl ale..."
+    Duration: 4.47
+    AudioClip: {fileID: 0}
+  - Author: Ty
+    Text: Tak jo, pojedu autem
+    Duration: 2.5
+    AudioClip: {fileID: 0}
