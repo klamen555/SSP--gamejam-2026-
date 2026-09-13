@@ -1,9 +1,9 @@
 using UnityEngine;
 using TMPro;
-using System;
 using Unity.Mathematics;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 
 public class ProximityPromptScript : MonoBehaviour
 {
@@ -29,7 +29,7 @@ public class ProximityPromptScript : MonoBehaviour
 
     [SerializeField] private AudioSource ProceduralSFX;
 
-    public event Action IsTriggered;
+    public UnityEvent IsTriggered;
 
     private static readonly List<ProximityPromptScript> allPrompts = new List<ProximityPromptScript>();
     private static ProximityPromptScript bestPrompt;
