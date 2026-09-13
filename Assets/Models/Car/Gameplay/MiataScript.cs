@@ -7,7 +7,7 @@ public class MiataScript : MonoBehaviour
     public Transform SitPoint;
     public Transform EscapePoint;
     public Transform PlayerCamera;
-    public PlayerController playerController;
+    //public PlayerController playerController;
 
     private bool isSitting;
 
@@ -25,8 +25,8 @@ public class MiataScript : MonoBehaviour
         PlayerCamera.localRotation = Quaternion.Euler(0, 0, 0);
 
         prox.IsVisible = false;
-        playerController.CanWalk = false;
-        playerController.applyLookLimits = true;
+        //playerController.CanWalk = false;
+        //playerController.applyLookLimits = true;
         isSitting = true;
     }
 
@@ -42,8 +42,8 @@ public class MiataScript : MonoBehaviour
         PlayerRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         
         prox.IsVisible = true;
-        playerController.CanWalk = true;
-        playerController.applyLookLimits = false;
+        //playerController.CanWalk = true;
+        //playerController.applyLookLimits = false;
     }
 
     private void Update()
