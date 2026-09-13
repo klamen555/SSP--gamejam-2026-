@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 using Unity.Mathematics;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -17,13 +18,13 @@ public class ProximityPromptScript : MonoBehaviour
     public string Object = "Door";
     public string Actions;
 
-    public Transform Camera;
+    public Transform cam;
     public Transform Canvas;
     public TMP_Text Text;
 
     public GameObject TextField;
     private bool IsActive = false;
-    private bool Debounce = true;
+    public bool Debounce = true;
 
     public bool IsVisible = false;
 
@@ -52,6 +53,8 @@ public class ProximityPromptScript : MonoBehaviour
     {
         ReamingTime = time;
         WaitedTime = WaitTime;
+
+        cam = Camera.main.transform;
     }
 
     private void Update()
@@ -66,7 +69,7 @@ public class ProximityPromptScript : MonoBehaviour
 
         if (IsActive && Debounce)
         {
-            Canvas.LookAt(Camera.position);
+            Canvas.LookAt(cam.position);
             Canvas.Rotate(0, 180, 0);
             TextField.SetActive(true);
 
@@ -99,6 +102,7 @@ public class ProximityPromptScript : MonoBehaviour
         }
         else
         {
+            Debug.Log("Gay");
             TextField.SetActive(false);
             StopProcenduralSFX();
         }
@@ -122,13 +126,13 @@ public class ProximityPromptScript : MonoBehaviour
 
         foreach (var prompt in allPrompts)
         {
-            if (!prompt.IsVisible || prompt.Camera == null || prompt.Canvas == null) continue;
+            if (!prompt.IsVisible || prompt.cam == null || prompt.Canvas == null) continue;
 
-            float distance = Vector3.Distance(prompt.Camera.position, prompt.Canvas.position);
+            float distance = Vector3.Distance(prompt.cam.position, prompt.Canvas.position);
             if (distance > prompt.MaxDistance) continue;
 
-            Vector3 camFront = prompt.Camera.forward;
-            Vector3 shouldLook = prompt.Canvas.position - prompt.Camera.position;
+            Vector3 camFront = prompt.cam.forward;
+            Vector3 shouldLook = prompt.Canvas.position - prompt.cam.position;
             float dot = Vector3.Dot(camFront.normalized, shouldLook.normalized);
 
             if (dot > prompt.MinDot && dot > highestDot)

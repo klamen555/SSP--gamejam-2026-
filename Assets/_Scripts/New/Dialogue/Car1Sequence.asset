@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3be78dba4812b49a4537509169484e, type: 3}
+  m_Name: Car1Sequence
+  m_EditorClassIdentifier: 
+  dialogueSequenceList:
+  - Author: Ty
+    Text: "Mohl bych dnes ud\u011Blat n\u011Bjakou zm\u011Bnu"
+    Duration: 2.53
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Co t\u0159eba \u017Ee si zapnu r\xE1dio,"
+    Duration: 2.53
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "a\u0165 ne\u017Eiju ka\u017Ed\xFD den stejn\u011B..."
+    Duration: 2.53
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: null
+    Text: "[Klasick\xE1 hudba v r\xE1diu]"
+    Duration: 20
+    AudioClip: {fileID: 8300000, guid: 75e4eff236ef0ee4eaceaee6b1a9a3c8, type: 3}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Nudn\xFD"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Pro\u010D by n\u011Bkdo v\u016Fbec utr\xE1cel \u010Das a pen\xEDze na
+      hudbu"
+    Duration: 4
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Nikdy jsem to nech\xE1pal"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: "Nezn\xE1m\xE1 osoba"
+    Text: "Byl jsi v\u017Edycki takov\xFD"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Co\u017Ee!? Kdo to je!?"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: "Nezn\xE1m\xE1 osoba"
+    Text: "Jsem tv\u016Fj nep\u0159\xEDtel a kamar\xE1d..."
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: "Nezn\xE1m\xE1 osoba"
+    Text: Jsem tvoje sebepochybnost
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "To se mi snad zd\xE1"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Nikdy jsem to nech\xE1pal"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Nikdy jsem to nech\xE1pal"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Nikdy jsem to nech\xE1pal"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Nikdy jsem to nech\xE1pal"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
+  - Author: Ty
+    Text: "Nikdy jsem to nech\xE1pal"
+    Duration: 3
+    AudioClip: {fileID: 0}
+    option1: 
+    option2: 
