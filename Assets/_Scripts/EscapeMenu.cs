@@ -6,6 +6,8 @@ public class EscapeMenu : MonoBehaviour
 {
     public static EscapeMenu instance;
 
+    public PlayerMovement script;
+
     public GameObject escapePanel;
     public GameObject optionsPanel;
     private bool isOpen = false;
@@ -35,6 +37,7 @@ public class EscapeMenu : MonoBehaviour
         controls.Player.Enable();
         escapeAction.started += OnEscapePressed;
     }
+
     private void OnDisable()
     {
         escapeAction.started -= OnEscapePressed;
@@ -54,7 +57,6 @@ public class EscapeMenu : MonoBehaviour
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
 
-        // Names of scenes that should be disabled
         if (currentSceneName == "MainMenu")
         {
             return false;
@@ -68,8 +70,18 @@ public class EscapeMenu : MonoBehaviour
         escapePanel.SetActive(isOpen);
         Time.timeScale = isOpen ? 0f : 1f;
 
-        Cursor.lockState = isOpen ? CursorLockMode.None : CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.lockState = isOpen ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isOpen ? true : false;
+
+        if (script == null)
+        {
+            script = FindFirstObjectByType<PlayerMovement>();
+        }
+
+        if (script != null)
+        {
+            script.enabled = !isOpen;
+        }
     }
 
     public void OpenSettings()
@@ -89,13 +101,25 @@ public class EscapeMenu : MonoBehaviour
         isOpen = false;
         escapePanel.SetActive(false);
         Time.timeScale = 1f;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (script == null)
+        {
+            script = FindFirstObjectByType<PlayerMovement>();
+        }
+
+        if (script != null)
+        {
+            script.enabled = true;
+        }
     }
 
     public void GoToMainMenu()
     {
         Resume();
-        if (SceneTransition.instance != null) SceneTransition.instance.LoadScene(1);
-        else SceneManager.LoadScene(1);
+        if (SceneTransition.instance != null) SceneTransition.instance.LoadScene(0);
+        else SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
